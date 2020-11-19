@@ -1,0 +1,7 @@
+test_feature|feature|BUCKET_SPLITER|-0.5,0,0.5,999999999
+test_feature|feature|BINARIZER|0.1
+test_feature|label|LABEL_ENCODE
+test_feature|feature|LOG|log-e
+test_feature|feature|MAX_ABS_SCALER|0,1
+test_feature|label|ONEHOT_DISASSEMBLER_ENCODER
+test_feature|feature|QUANTILE_DISCRETIZER|3
