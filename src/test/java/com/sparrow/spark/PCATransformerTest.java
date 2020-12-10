@@ -1,5 +1,6 @@
 package com.sparrow.spark;
 
+import com.sparrow.spark.feature.FeatureTransformer;
 import com.sparrow.spark.feature.impl.PCATransformer;
 import com.sparrow.spark.utils.SparkSessionAccessor;
 import org.apache.spark.sql.Dataset;
@@ -13,7 +14,7 @@ public class PCATransformerTest {
         Dataset<Row> inputData = FeatureSampleData.get(spark);
         FeatureTransformer featureTransform = new PCATransformer();
         int k = 3;
-        Dataset<Row> result = featureTransform.transform(inputData, "feature", k + "");
+        Dataset<Row> result = featureTransform.transform(inputData, "feature", k + "").getDs();
         System.out.println("PCA output with K = " + k);
         result.show();
     }

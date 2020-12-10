@@ -1,7 +1,7 @@
 package com.sparrow.spark;
 
 import com.sparrow.spark.feature.FeatureTransformer;
-import com.sprucetec.recommend.feature.feature.impl.*;
+import com.sparrow.spark.feature.impl.*;
 import org.apache.spark.ml.linalg.SparseVector;
 import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.api.java.*;

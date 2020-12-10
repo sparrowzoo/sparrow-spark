@@ -14,7 +14,7 @@ public class BinarizerImplTest {
         Dataset<Row> inputData = FeatureSampleData.get(spark);
         FeatureTransformer featureTransform = new BinarizerTransformer();
         double threshold = 0.1;
-        Dataset<Row> result = featureTransform.transform(inputData, "feature", threshold + "");
+        Dataset<Row> result = featureTransform.transform(inputData, "feature", threshold + "").getDs();
         System.out.println("Binarizer output with Threshold = " + threshold);
         result.show();
     }

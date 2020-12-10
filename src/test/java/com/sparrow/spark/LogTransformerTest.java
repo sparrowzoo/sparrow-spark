@@ -1,5 +1,6 @@
 package com.sparrow.spark;
 
+import com.sparrow.spark.feature.FeatureTransformer;
 import com.sparrow.spark.feature.impl.LogTransformer;
 import com.sparrow.spark.utils.SparkSessionAccessor;
 import org.apache.spark.sql.Dataset;
@@ -11,8 +12,8 @@ public class LogTransformerTest {
         SparkSession spark = SparkSessionAccessor.getSession("feature", SparkSessionAccessor.MASTER_LOCAL);
 
         Dataset<Row> inputData = FeatureSampleData.get(spark);
-        FeatureTransformer bucketSpliter = new LogTransformer(spark);
-        Dataset<Row> result = bucketSpliter.transform(inputData, "feature", "log-10");
+        FeatureTransformer bucketSpliter = new LogTransformer();
+        Dataset<Row> result = bucketSpliter.transform(inputData, "feature", "log-10").getDs();
         System.out.println("Log output with buckets Log");
         result.show();
         spark.close();
