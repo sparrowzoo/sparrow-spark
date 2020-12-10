@@ -19,6 +19,8 @@ public class Behavior2JoinTest {
                 "(t-(lag(t,1,'0') over (partition by uid order by t))) as sess," +
                 "lag(sid,1,'0') over (partition by uid order by t) as pre_sid," +
                 "lead(sid,1,'0') over (partition by uid order by t) as next_sid from user_behavior";
+        //SQL语句:select date,phone from (select *,row_number() over (partition by phone order by date) num from tmp_table1) t where t.num=1
+        //或者val df2 = df1.dropDuplicates(Seq("phone"))
         spark.sql(sql).show();
     }
 }
